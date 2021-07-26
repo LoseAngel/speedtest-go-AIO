@@ -130,7 +130,7 @@ function del(){
 function thread_set(){
     read -p "输入要设置的线程大小:" number
     expr $number + 1 >/dev/null 2>&1
-    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/xhr_dlMultistream: [0-9]*,/xhr_dlMultistream: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/xhr_ulMultistream: [0-9]*,/xhr_ulMultistream: $number,/g" $dir/assets/speedtest_worker.js && stop && start && echo "设置成功"
+    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/xhr_dlMultistream: [0-9]*,/xhr_dlMultistream: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/xhr_ulMultistream: [0-9]*,/xhr_ulMultistream: $number,/g" $dir/assets/speedtest_worker.js && stop && sleep 2 && start && echo "设置成功"
 
 }
 echo "------------------------------------------------"
