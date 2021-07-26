@@ -11,10 +11,10 @@ dir="/usr/speedtest/"
 
 function setout(){
     if [ -e "/usr/bin/yum" ]; then
-        yum -y install git wget
+        yum -y install git wget gcc
     else
         sudo apt-get update
-        sudo apt-get install -y wget git
+        sudo apt-get install -y wget git gcc
     fi
 }
 
@@ -45,7 +45,7 @@ function del_post() {
 }
 
 function install_go(){
-    apt install gcc -y
+   
     gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
     wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
     tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
