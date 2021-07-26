@@ -45,7 +45,7 @@ function del_post() {
 }
 
 function install_go(){
-    apt isntall go -y
+    apt install golang-go -y
 }
 
 function input_port(){
