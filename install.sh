@@ -1,7 +1,8 @@
 #!/bin/bash
 ### 一键安装 speedtest go 版本  #
-###    作者：fenghuang          #
-###   更新时间：2020-04-19      #
+###    作者：n0thing2speak
+ #
+###   更新时间：2020-07-27      #
 
 #导入环境变量
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
@@ -44,10 +45,7 @@ function del_post() {
 }
 
 function install_go(){
-    gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
-    wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
-    tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
-    export GOPATH="/usr/go"
+    apt isntall go -y
 }
 
 function input_port(){
@@ -86,14 +84,14 @@ function get_speedtest(){
     fi
     install_go
     cd && git clone https://github.com/librespeed/speedtest-go.git
-    cd speedtest
+    cd speedtest-go
     mkdir $dir && cp -r settings.toml assets $dir
-    /usr/local/go/bin/go build -o speedtest main.go
+    go build -o speedtest main.go
     cp ./speedtest $dir
-    cd && rm -rf speedtest go
+    cd && rm -rf speedtest 
     cd $dir && sed -i "4s/[0-9]\{1,5\}/$port/g" settings.toml
     cd $dir"assets" && mv example-singleServer-full.html index.html
-    rm -rf /usr/local/go /usr/go
+    
 }
 
 function start(){
@@ -155,3 +153,4 @@ case $istype in
     stop;;
     *) break
 esac
+{"mode":"full","isActive":false}
