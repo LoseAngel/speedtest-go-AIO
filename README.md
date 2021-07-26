@@ -1,4 +1,4 @@
-# speedtest go 测试一键脚本arm版
+# speedtest go 测试一键脚本arm版 (支持自定义测试线程)
 
 [speedtest](https://github.com/librespeed/speedtest) 项目的 go 版本arm一键安装脚本，测速相关使用请参考原仓库
 
@@ -15,6 +15,7 @@
 ```bash
 bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/install.sh)
 ```
+![](./screen.png)
 
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
 
@@ -29,7 +30,7 @@ yum -y install curl
 
 2021/07/27
 
-- 修改为arm模式
+- 修改为arm模式，多线程自定义
 
 2020/4/19
 
