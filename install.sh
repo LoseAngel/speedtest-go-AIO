@@ -45,8 +45,8 @@ function del_post() {
 
 function install_go(){
     gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
-    wget https://golang.org/dl/${gov}.linux-amd64.tar.gz -P /tmp
-    tar -C /usr/local -zxf /tmp/${gov}.linux-amd64.tar.gz
+    wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
+    tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
     export GOPATH="/usr/go"
 }
 
