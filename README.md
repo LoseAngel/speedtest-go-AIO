@@ -12,7 +12,7 @@
 一键安装脚本（使用root用户）：
 
 ```bash
-bash <(curl -Lsk https://raw.githubusercontent.com/BigMangos/speedtest-go-script/master/install.sh)
+https://github.com/n0thing2speak/speedtest-go-arm/blob/master/install.sh
 ```
 
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
