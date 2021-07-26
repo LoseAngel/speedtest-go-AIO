@@ -130,9 +130,16 @@ function del(){
 function thread_set(){
     read -p "输入要设置的线程大小:" number
     expr $number + 1 >/dev/null 2>&1
-    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/xhr_dlMultistream: [0-9]*,/xhr_dlMultistream: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/xhr_ulMultistream: [0-9]*,/xhr_ulMultistream: $number,/g" $dir/assets/speedtest_worker.js && stop && sleep 2 && start && echo "设置成功"
+    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/xhr_dlMultistream: [0-9]*,/xhr_dlMultistream: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/xhr_ulMultistream: [0-9]*,/xhr_ulMultistream: $number,/g" $dir/assets/speedtest_worker.js && stop && sleep 2 && start && echo "设置成功,刷新网页即可"
 
 }
+
+function time_set(){
+    read -p "输入要设置的时间大小(单位为s):" number
+    expr $number + 1 >/dev/null 2>&1
+    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/time_ul_max: [0-9]*,/time_ul_max: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/time_dl_max: [0-9]*,/time_dl_max: $number,/g" $dir/assets/speedtest_worker.js && stop && sleep 2 && start && echo "设置成功,刷新网页即可"
+}
+
 echo "------------------------------------------------"
 echo "Speedtest go-ARM一键安装管理脚本"
 echo "1、安装 Speedtest"
@@ -141,6 +148,7 @@ echo "3、修改监听端口"
 echo "4、启动 Speedtest"
 echo "5、停止 Speedtest"
 echo "6、设置多线程上传下载"
+echo "7、设置测速时长(秒为单位)"
 echo "其它键退出！"
 read -p ":" istype
 case $istype in
@@ -160,5 +168,7 @@ case $istype in
     stop;;
     6)
     thread_set;;
+    7)
+    time_set;;
     *) break
 esac
