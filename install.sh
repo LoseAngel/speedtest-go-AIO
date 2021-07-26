@@ -45,7 +45,12 @@ function del_post() {
 }
 
 function install_go(){
-    apt install golang-go -y
+    apt install gcc -y
+    gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
+    wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
+    tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
+    export GOPATH="/usr/local/go"
+
 }
 
 function input_port(){
@@ -86,7 +91,7 @@ function get_speedtest(){
     cd && git clone https://github.com/librespeed/speedtest-go.git
     cd speedtest-go
     mkdir $dir && cp -r settings.toml assets $dir
-    go build -o speedtest main.go
+    /usr/local/go/bin/go build -o speedtest main.go
     cp ./speedtest $dir
     cd && rm -rf speedtest 
     cd $dir && sed -i "4s/[0-9]\{1,5\}/$port/g" settings.toml
@@ -124,6 +129,7 @@ function del(){
     del_post
     rm -rf $dir
     rm -f /var/log/speedtest.log
+
     echo "卸载成功."
 }
 
