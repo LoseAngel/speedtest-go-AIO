@@ -1,5 +1,5 @@
 #!/bin/bash
-### 一键安装 speedtest go 版本  #
+### 一键安装 speedtest go-arm 版本  #
 ###    作者：n0thing2speak
  #
 ###   更新时间：2020-07-27      #
@@ -127,13 +127,20 @@ function del(){
     echo "卸载成功."
 }
 
+function thread_set(){
+    read -p "输入要设置的线程大小:" number
+    expr $number + 1 >/dev/null 2>&1
+    [ $? -ne 0 ] && echo "请输入一个确定的数字" && exit 8 || sed -i "s/xhr_dlMultistream: [0-9]*,/xhr_dlMultistream: $number,/g" $dir/assets/speedtest_worker.js && sed -i "s/xhr_ulMultistream: [0-9]*,/xhr_ulMultistream: $number,/g" $dir/assets/speedtest_worker.js && stop && start && echo "设置成功"
+
+}
 echo "------------------------------------------------"
-echo "Speedtest go版本一键安装管理脚本"
+echo "Speedtest go-ARM一键安装管理脚本"
 echo "1、安装 Speedtest"
 echo "2、卸载 Speedtest"
 echo "3、修改监听端口"
 echo "4、启动 Speedtest"
 echo "5、停止 Speedtest"
+echo "6、设置多线程上传下载"
 echo "其它键退出！"
 read -p ":" istype
 case $istype in
@@ -151,6 +158,7 @@ case $istype in
     start;;
     5)
     stop;;
+    6)
+    thread_set;;
     *) break
 esac
-{"mode":"full","isActive":false}
