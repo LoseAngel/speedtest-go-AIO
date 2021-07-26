@@ -15,7 +15,8 @@
 ```bash
 bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/install.sh)
 ```
-![](./screen.png)
+建议高速vps设置时间长一点，默认是15s
+![](./s.png)
 
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
 
@@ -30,7 +31,7 @@ yum -y install curl
 
 2021/07/27
 
-- 修改为arm模式，多线程自定义
+- 修改为arm模式，多线程自定义,支持设置测速时间
 
 2020/4/19
 
