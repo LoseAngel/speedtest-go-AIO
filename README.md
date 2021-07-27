@@ -1,10 +1,10 @@
-# speedtest go 测试一键脚本arm版 (支持自定义测试线程)
+# speedtest go 测试一键脚本arm版 (支持自定义线程大小和测试时长)
 
 [speedtest](https://github.com/librespeed/speedtest) 项目的 go 版本arm一键安装脚本，测速相关使用请参考原仓库
 
 ### 环境要求
 
-* 支持的操作系统：CentOS 7-8、Debian 8-10、Ubuntu 16-18
+* 支持的操作系统：CentOS 系列、Debian 系列、Ubuntu 系列
 * 操作系统要求64位(仅支持arm)
 
 
