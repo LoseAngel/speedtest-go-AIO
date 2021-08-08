@@ -1,5 +1,4 @@
->> ps:vps 一件更改root密码脚本
->> `bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)`
+
 
 
 # speedtest go 测试一键脚本arm版 (支持自定义线程大小和测试时长)
@@ -18,6 +17,11 @@
 
 ```bash
 bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/install.sh)
+```
+
+>> ps:vps 一件更改root密码脚本
+```bash 
+bash<(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)
 ```
 建议高速vps设置时间长一点，默认是15s
 ![](./s.png)
