@@ -21,7 +21,7 @@ bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-ar
 
 >> ps:vps 一键更改root密码脚本
 ```bash 
-bash<(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)
+bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)
 ```
 建议高速vps设置时间长一点，默认是15s
 ![](./s.png)
