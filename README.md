@@ -1,3 +1,7 @@
+ps:vps 一件更改root密码脚本
+`bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)`
+
+
 # speedtest go 测试一键脚本arm版 (支持自定义线程大小和测试时长)
 
 [speedtest](https://github.com/librespeed/speedtest) 项目的 go 版本arm一键安装脚本，测速相关使用请参考原仓库
