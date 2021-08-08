@@ -37,7 +37,7 @@ systemctl restart nginx
 添加crontab自动续签
 
 ```bash
-0 23 28 * * 路径/certbotrenew.sh
+0 23 28 * * /bin/sh 路径/certbotrenew.sh
 ```
 每月28号23点执行
 
