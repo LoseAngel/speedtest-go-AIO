@@ -1,4 +1,4 @@
-ps:vps 一件更改root密码脚本
+>> ps:vps 一件更改root密码脚本
 `bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/root_aio.sh)`
 
 
