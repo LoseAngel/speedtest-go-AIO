@@ -1,7 +1,7 @@
 
 
 
-# speedtest go 测试一键脚本arm版 (支持自定义线程大小和测试时长)
+# speedtest go 测试一键脚本ALl In One版 (支持自定义线程大小和测试时长)
 
 [speedtest](https://github.com/librespeed/speedtest) 项目的 go 版本arm一键安装脚本，测速相关使用请参考原仓库
 
@@ -36,6 +36,10 @@ yum -y install curl
 ```
 
 ### 更新
+
+2021/08/17
+
+- arm64 and x86_64 on click all in one
 
 2021/07/27
 
