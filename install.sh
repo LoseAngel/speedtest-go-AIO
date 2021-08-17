@@ -1,8 +1,8 @@
 #!/bin/bash
-### 一键安装 speedtest go-arm 版本  #
+### 一键安装 speedtest go-AIO 版本  #
 ###    作者：n0thing2speak
  #
-###   更新时间：2020-07-27      #
+###   更新时间：2020-08-17      #
 
 #导入环境变量
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
@@ -45,10 +45,17 @@ function del_post() {
 }
 
 function install_go(){
-   
-    gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
-    wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
-    tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
+
+     gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
+
+     if [ "$(uname -m)" == "aarch64" ]
+     then
+        wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
+        tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
+     else
+        wget https://golang.org/dl/${gov}.linux-amd64.tar.gz -P /tmp
+        tar -C /usr/local -zxf /tmp/${gov}.linux-amd64.tar.gz
+     fi
     export GOPATH="/usr/local/go"
 
 }
