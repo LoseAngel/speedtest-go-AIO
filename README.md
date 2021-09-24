@@ -27,6 +27,19 @@ bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-ar
 建议高速vps设置时间长一点，默认是15s
 ![](./s.png)
 
+关闭防火墙，比如甲骨文就很烦
+<details>  
+
+```
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -F
+sudo apt-get purge netfilter-persistent -y
+sudo reboot
+```
+</details>
+
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
 
 ```bash
