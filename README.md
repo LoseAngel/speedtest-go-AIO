@@ -28,17 +28,9 @@ bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-ar
 ![](./s.png)
 
 关闭防火墙，比如甲骨文就很烦
-<details>  
-
+```bash
+bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-arm/master/fuckiptables.sh)
 ```
-sudo iptables -P INPUT ACCEPT
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -P OUTPUT ACCEPT
-sudo iptables -F
-sudo apt-get purge netfilter-persistent -y
-sudo reboot
-```
-</details>
 
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
 
