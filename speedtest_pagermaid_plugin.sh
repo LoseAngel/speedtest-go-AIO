@@ -7,8 +7,4 @@ checkspeedtest() {
 	mkdir -p speedtest-cli && tar zxvf speedtest.tgz -C ./speedtest-cli/ > /dev/null 2>&1 && chmod a+rx ./speedtest-cli/speedtest
 }
 
-runall() {
-	checkspeedtest;
-}
-echo 'before run'
-runall
+checkspeedtest
