@@ -1,3 +1,4 @@
+#
 #!/bin/bash
 checkspeedtest() {
 	if  [ ! -e '/pagermaid/workdir/speedtest-cli/speedtest' ]; then
