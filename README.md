@@ -37,10 +37,15 @@ bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-ar
 bash <(curl -Lsk https://raw.githubusercontent.com/n0thing2speak/speedtest-go-AIO/master/shuaibi_oraclekeeper.sh)
 ``` 
 卸载：
+
 systemctl disable cpur --now
+
 sed -i '//opt/shuaibi/mem.sh/d' /etc/crontab
+
 rm -rf /opt/shuaibi
+
 rm /ramdisk/dd.img
+
 如果出现`-bash: curl: command not found`错误，说明`curl`命令没安装，请输入下面的命令先安装`curl`，再回过头来执行上面的命令再来一次。
 
 ```bash
