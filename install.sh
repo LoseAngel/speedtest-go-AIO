@@ -2,12 +2,13 @@
 ### 一键安装 speedtest go-AIO 版本  #
 ###    作者：n0thing2speak
  #
-###   更新时间：2020-08-17      #
+###   更新时间：2023-03-31      #
 
 #导入环境变量
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
 dir="/usr/speedtest/"
+GOVER="1.20.2"
 
 function setout(){
     if [ -e "/usr/bin/yum" ]; then
@@ -46,15 +47,15 @@ function del_post() {
 
 function install_go(){
 
-     gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
+     # gov=$(curl -s https://github.com/golang/go/releases|awk '/release-branch/{print $NF;exit;}')
 
      if [ "$(uname -m)" == "aarch64" ]
      then
-        wget https://golang.org/dl/${gov}.linux-arm64.tar.gz -P /tmp
-        tar -C /usr/local -zxf /tmp/${gov}.linux-arm64.tar.gz
+        wget https://go.dev/dl/go1.20.2.linux-arm64.tar.gz -P /tmp
+        tar -C /usr/local -zxf /tmp/go1.20.2.linux-arm64.tar.gz
      else
-        wget https://golang.org/dl/${gov}.linux-amd64.tar.gz -P /tmp
-        tar -C /usr/local -zxf /tmp/${gov}.linux-amd64.tar.gz
+        wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz -P /tmp
+        tar -C /usr/local -zxf /tmp/go1.20.2.linux-amd64.tar.gz
      fi
     export GOPATH="/usr/local/go"
 
@@ -97,7 +98,7 @@ function get_speedtest(){
     install_go
     cd && git clone https://github.com/librespeed/speedtest-go.git
     cd speedtest-go
-    mkdir $dir && cp -r settings.toml assets $dir
+    mkdir $dir && cp -r settings.toml web/assets $dir
     /usr/local/go/bin/go build -o speedtest main.go
     cp ./speedtest $dir
     cd && rm -rf speedtest 
